@@ -1,6 +1,7 @@
 package practice;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,16 +10,31 @@ public class Chapter5 {
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 		
-		List<LocalDate> date = new ArrayList<LocalDate>();
-		List<String> yotei = new ArrayList<String>();
+		DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 		
-		Task task = new Task(date, yotei);
+		Task task1 = new Task(LocalDate.parse("2021/08/10", f), "散髪に行く");
+		Task task2 = new Task(LocalDate.parse("2021/09/15", f), "○〇社面接");
+		Task task3 = new Task(LocalDate.parse("2021/10/21", f), "牛乳を買う");
+		Task task4 = new Task(LocalDate.parse("2021/11/09", f), "スクールの課題を解く");
+		Task task5 = new Task(LocalDate.parse("2021/12/04", f), "手帳を買う");
 		
-		task.taskKakunou(task);
 		
-		for(int i = 0; i < task.date.size(); i++) {
-			System.out.print(task.date.get(i) + ":");
-			System.out.println(task.yotei.get(i));
+		List<Task> tasks = new ArrayList<Task>();
+		tasks.add(task1);
+		tasks.add(task2);
+		tasks.add(task3);
+		tasks.add(task4);
+		tasks.add(task5);
+		
+		
+		
+		
+		for(int i = 0; i < tasks.size(); i++) {
+			
+			System.out.print(tasks.get(i).getDate() + ":");
+			System.out.println(tasks.get(i).getSchedule());
+			
+			
 		}
 		
 
